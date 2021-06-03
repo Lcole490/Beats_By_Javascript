@@ -11,6 +11,7 @@ class DrumKit{
         this.index= 0; // Monitors the status of the track, or progression point of the track
 
         this.bpm = 150;
+        this.isPlaying = null;
     }
 
     activePad(){
@@ -35,11 +36,11 @@ class DrumKit{
                     this.kickAudio.play();
                 }
                 if(bar.classList.contains("snare-pad")){
-                    this.kickAudio.currentTime = 0;         // fixes bug that exists when consecutive pads are active and sound does not play for both
+                    this.snareAudio.currentTime = 0;         // fixes bug that exists when consecutive pads are active and sound does not play for both
                     this.snareAudio.play();
                 }
                 if(bar.classList.contains("hihat-pad")){
-                    this.kickAudio.currentTime = 0;         // fixes bug that exists when consecutive pads are active and sound does not play for both
+                    this.hihatAudio.currentTime = 0;         // fixes bug that exists when consecutive pads are active and sound does not play for both
                     this.hihatAudio.play();
                 }
             }
@@ -54,10 +55,30 @@ class DrumKit{
     start(){            // Method to set the interval at which the step would increment. in this case a step is added every second
 
         const interval = (60/this.bpm) * 1000;
-        setInterval(()=> {
+
+        // Check if beat is already playing
+        if(!this.isPlaying){
+
+        
+        this.isPlaying = setInterval(()=> {
 
             this.repeat();
         }, interval);
+    } else {
+        clearInterval(this.isPlaying);
+        this.isPlaying = null;
+    }
+    }
+
+
+    updateBtn(){
+        if(!this.isPlaying){
+            this.playBtn.innerText = "Stop";
+            this.playBtn.classList.add('active');
+        } else {
+            this.playBtn.innerText = "Play";
+            this.playBtn.classList.remove('active');
+        }
     }
 }
 
@@ -75,5 +96,8 @@ drumKit.pads.forEach(pad => {
 
 
 drumKit.playBtn.addEventListener("click", ()=> {
+    
+    drumKit.updateBtn();
     drumKit.start();
+    
 });
