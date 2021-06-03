@@ -25,6 +25,21 @@ class DrumKit{
         const activeBars = document.querySelectorAll(`.b${step}`);
         activeBars.forEach(bar =>{
             bar.style.animation = `playTrack 0.3s alternate ease-in-out 2`;
+
+            // This checks if pads are active. If they are, the sound would play for that pad.
+            if(bar.classList.contains('active')){
+                // Check each sound to correspond them with correct pad class (kick, snare, hihat, etc)
+
+                if(bar.classList.contains("kick-pad")){
+                    this.kickAudio.play();
+                }
+                if(bar.classList.contains("snare-pad")){
+                    this.snareAudio.play();
+                }
+                if(bar.classList.contains("hihat-pad")){
+                    this.hihatAudio.play();
+                }
+            }
         });
         this.index++;
        
