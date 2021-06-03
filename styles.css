@@ -128,3 +128,15 @@ select{
     font-size: 1rem;
     min-width: 10rem;
 }
+
+
+
+@keyframes playTrack{
+    from{
+        transform: scale(1);
+
+    }
+    to {
+        transform: scale(1.3);
+    }
+}
