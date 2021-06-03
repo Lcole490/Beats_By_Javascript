@@ -1,0 +1,61 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+body{
+    font-family: sans-serif;
+
+}
+
+i, 
+svg{
+    pointer-events: none;           /* prevents false clicking of icon or svg element that is superimposed on the button. That way it does not affect button clicks */
+}
+
+
+
+.kick-pad, .snare-pad, .hihat-pad{
+    
+    width: 5rem;
+    height: 5rem;
+    margin: 1rem 0.5rem;
+    cursor: pointer;
+
+}
+
+
+.kick-pad{
+
+    background: rgb(224, 191, 160);
+}
+
+
+.snare-pad{
+
+    background: rgb(160, 169, 224);
+}
+
+
+.hihat-pad{
+
+    background: rgb(160, 224, 194);
+}
+
+
+.hihat-track, .snare-track, .kick-track {
+
+    display: flex;
+}
+
+
+.kick, .hihat, .snare{
+
+    display: flex;
+}
