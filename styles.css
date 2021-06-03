@@ -48,6 +48,20 @@ svg{
     background: rgb(160, 224, 194);
 }
 
+.kick-pad.active{
+
+    background: rgb(194, 116, 44);
+}
+
+.hihat-pad.active{
+
+    background: rgb(46, 172, 113);
+}
+
+.snare-pad.active{
+
+    background: rgb(45, 62, 170);
+}
 
 .sequencer{
     display: flex;
@@ -71,4 +85,46 @@ svg{
 .kick, .hihat, .snare{
 
     display: flex;
+}
+
+
+.controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    margin: 0rem 2rem;
+}
+
+
+.controls button {
+    padding: 1rem;
+    border: none;
+    background: rgb(88, 88, 88);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+
+.pad{
+    transition: all 0.5s ease;
+}
+
+.play {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    background: rgb(88, 88, 88);
+    cursor: pointer;
+    margin-top: 3rem;
+    color: white;
+
+}
+
+
+select{
+    padding: 1rem;
+    font-size: 1rem;
+    min-width: 10rem;
 }
