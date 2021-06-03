@@ -20,8 +20,14 @@ class DrumKit{
     repeat(){               // Method to repeat steps of the track 
         let step = this.index % 8;
         console.log(`Step ${step}, Index ${this.index}`);
-        this.index++;
+
+        // loop over the pads
         const activeBars = document.querySelectorAll(`.b${step}`);
+        activeBars.forEach(bar =>{
+            bar.style.animation = `playTrack 0.3s alternate ease-in-out 2`;
+        });
+        this.index++;
+       
         console.log(activeBars);
 
 
@@ -43,10 +49,13 @@ const drumKit = new DrumKit();
 
 
 drumKit.pads.forEach(pad => {
-    pad.addEventListener('click', drumKit.activePad)
-})
+    pad.addEventListener('click', drumKit.activePad);
+    pad.addEventListener('animationend', function(){
+        this.style.animation= "";
+    });
+});
 
 
 drumKit.playBtn.addEventListener("click", ()=> {
     drumKit.start();
-})
+});
