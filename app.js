@@ -31,12 +31,15 @@ class DrumKit{
                 // Check each sound to correspond them with correct pad class (kick, snare, hihat, etc)
 
                 if(bar.classList.contains("kick-pad")){
+                    this.kickAudio.currentTime = 0;         // fixes bug that exists when consecutive pads are active and sound does not play for both
                     this.kickAudio.play();
                 }
                 if(bar.classList.contains("snare-pad")){
+                    this.kickAudio.currentTime = 0;         // fixes bug that exists when consecutive pads are active and sound does not play for both
                     this.snareAudio.play();
                 }
                 if(bar.classList.contains("hihat-pad")){
+                    this.kickAudio.currentTime = 0;         // fixes bug that exists when consecutive pads are active and sound does not play for both
                     this.hihatAudio.play();
                 }
             }
