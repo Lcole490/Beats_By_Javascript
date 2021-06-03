@@ -13,6 +13,7 @@ class DrumKit{
     repeat(){
         let step = this.index % 8;
         console.log(step);
+        this.index++;
     }
 
     start(){
