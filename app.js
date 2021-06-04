@@ -4,9 +4,14 @@ class DrumKit{
     constructor(){
         this.pads = document.querySelectorAll('.pad');
         this.playBtn = document.querySelector('.play')
+        this.currentKick = './sounds/kick-classic.wav';
+        this.currentSnare = './sounds/snare-acoustic01.wav';
+        this.currentHihat = './sounds/hihat-acoustic01.wav';
         this.kickAudio = document.querySelector('.kick-sound');
         this.snareAudio = document.querySelector('.snare-sound');
         this.hihatAudio = document.querySelector('.hihat-sound');
+
+        this.selects = document.querySelectorAll("select");
 
         this.index= 0; // Monitors the status of the track, or progression point of the track
 
@@ -57,16 +62,21 @@ class DrumKit{
         const interval = (60/this.bpm) * 1000;
 
         // Check if beat is already playing
-        if(!this.isPlaying){
+        if(this.isPlaying){
+
+
+            clearInterval(this.isPlaying);
+            this.isPlaying = null;
+
+        
+    } else {
+       
 
         
         this.isPlaying = setInterval(()=> {
 
             this.repeat();
         }, interval);
-    } else {
-        clearInterval(this.isPlaying);
-        this.isPlaying = null;
     }
     }
 
@@ -80,11 +90,45 @@ class DrumKit{
             this.playBtn.classList.remove('active');
         }
     }
+
+
+    changeSound(e){
+
+
+        const selectionName = e.target.name;
+        const selectionValue = e.target.value;
+        console.log(e);
+        console.log(selectionName);
+        console.log(selectionValue);
+
+        switch(selectionName){
+
+
+            case "kick-select":
+                this.kickAudio.src = selectionValue;
+                break;
+                
+
+            case "snare-select":
+                this.snareAudio.src = selectionValue;
+                break;
+
+
+            case "hihat-select":
+                this.hihatAudio.src = selectionValue;
+                break;
+        }
+    }
 }
 
 
 
 const drumKit = new DrumKit();
+
+//  ******************************** E V E N T _ _ L I S T E N E R S ******************************************
+
+
+
 
 
 drumKit.pads.forEach(pad => {
@@ -100,4 +144,11 @@ drumKit.playBtn.addEventListener("click", ()=> {
     drumKit.updateBtn();
     drumKit.start();
     
+});
+
+
+drumKit.selects.forEach(select =>{
+    select.addEventListener("change", function(e){
+        drumKit.changeSound(e);
+    });
 });
