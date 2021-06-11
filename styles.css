@@ -4,6 +4,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
+    
+
+
+
+
 }
 
 
@@ -12,13 +18,25 @@
 body{
     font-family: sans-serif;
 
+ 
+
+
 }
 
 i, 
 svg{
     pointer-events: none;           /* prevents false clicking of icon or svg element that is superimposed on the button. That way it does not affect button clicks */
+    color: black;
 }
 
+
+.appTitle{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 4rem;
+}
 
 
 .kick-pad, .snare-pad, .hihat-pad{
@@ -33,19 +51,38 @@ svg{
 
 .kick-pad{
 
-    background: rgb(224, 191, 160);
+    /* background: rgb(224, 191, 160); */
+
+    background: rgba( 183, 139, 106, 0.50 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 14.0px );
+-webkit-backdrop-filter: blur( 14.0px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 
 .snare-pad{
 
-    background: rgb(160, 169, 224);
+    /* background: rgb(160, 169, 224); */
+    background: rgba( 103, 114, 200, 0.50 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 14.0px );
+-webkit-backdrop-filter: blur( 14.0px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 
 .hihat-pad{
 
-    background: rgb(160, 224, 194);
+    /* background: rgb(160, 224, 194); */
+    background: rgba( 53, 86, 22, 0.50 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 14.0px );
+    -webkit-backdrop-filter: blur( 14.0px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .kick-pad.active{
@@ -55,7 +92,8 @@ svg{
 
 .hihat-pad.active{
 
-    background: rgb(46, 172, 113);
+    background: rgb(49, 133, 94);
+ 
 }
 
 .snare-pad.active{
@@ -78,7 +116,7 @@ svg{
     align-items: center;
     width: 70%;
     justify-content: space-between;
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 
 
@@ -115,11 +153,17 @@ svg{
 .play {
     padding: 1rem 2rem;
     font-size: 1.5rem;
-    background: rgb(88, 88, 88);
+    background: rgb(10, 82, 32);
     cursor: pointer;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
     color: white;
 
+    
+
+}
+
+.play.active{
+    background: rgb(107, 26, 26);
 }
 
 
@@ -127,16 +171,32 @@ select{
     padding: 1rem;
     font-size: 1rem;
     min-width: 10rem;
+    
+  
+    color: black;
+    font-weight: bold;
+
+    background: rgba( 90, 90, 104, 0.50 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 14.0px );
+-webkit-backdrop-filter: blur( 14.0px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .mute.active{
-    background: rgb(182, 182, 182);
+    background: rgba( 90, 90, 104, 0.50 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 14.0px );
+-webkit-backdrop-filter: blur( 14.0px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 
 
 .tempo{
-    margin: 3rem;
+    margin: 1.2rem;
     width: 30%;
 
 }
@@ -148,9 +208,16 @@ select{
     margin: 1rem 0rem;
     width: 100%;
     position: relative;
-    background: rgb(88, 88, 88);
+    /* background: rgb(88, 88, 88); */
     cursor: pointer;
     border-radius: 1rem;
+
+    background: rgba( 90, 90, 104, 0.50 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 14.0px );
+    -webkit-backdrop-filter: blur( 14.0px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .tempo p{
